@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Một lần đến nhà, một lần gieo thêm niềm tin | Long-form</title>
+<link rel="preload" as="image" href="images/banner.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,400;1,7..72,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Tây Bắc: ruộng bậc thang · sương núi · indigo · hoa cải */
+  --terrace: #1a9b68;
+  --terrace-deep: #0c6e48;
+  --indigo: #3554a8;
+  --indigo-soft: #5b7ad4;
+  --mustard: #e8b63a;
+  --peach: #f0a8b8;
+  --sky: #7ec8e4;
+  --ink: #14332a;
+  --ink-soft: #2f4f43;
+  --muted: #5f776c;
+  --mist: #dff3ee;
+  --fog: #f3fbf8;
+  --paper: #fcfffe;
+  --line: #c4ddd4;
+  --forest: #0f4d3a;
+  --font-sans: "Be Vietnam Pro", system-ui, sans-serif;
+  --font-serif: "Literata", "Times New Roman", serif;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(1100px 580px at 8% -8%, #d9f2ff 0%, transparent 55%),
+    radial-gradient(900px 520px at 95% 12%, #d8f7e8 0%, transparent 52%),
+    radial-gradient(700px 420px at 50% 100%, #ffe9c8 0%, transparent 45%),
+    linear-gradient(180deg, #f5fcff 0%, var(--fog) 35%, var(--mist) 70%, #f7fff9 100%);
+  font-family: var(--font-serif);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  max-width: 100%;
+  width: 100%;
+}
+
+img, picture, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--terrace) 22%, white);
+  color: var(--ink);
+}
+
+/* Progress */
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  z-index: 50;
+  background: linear-gradient(90deg, var(--terrace), var(--sky), var(--mustard));
+  transform-origin: left;
+  box-shadow: 0 0 14px color-mix(in srgb, var(--terrace) 40%, transparent);
+  transition: width 80ms linear;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
+  overflow: hidden;
+  isolation: isolate;
+  width: 100%;
+  max-width: 100%;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: -8%;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(12, 58, 72, 0.12) 0%,
+      rgba(15, 77, 58, 0.2) 35%,
+      rgba(12, 90, 68, 0.55) 65%,
+      rgba(8, 62, 48, 0.88) 82%,
+      rgba(6, 42, 34, 0.96) 100%
+    ),
+    image-set(
+      url("images/banner.webp") type("image/webp"),
+      url("images/banner.jpg") type("image/jpeg")
+    ) center / cover no-repeat,
+    url("images/banner.jpg") center/cover no-repeat,
+    linear-gradient(125deg, #1a5c48 0%, #2a6d7a 45%, #3d5a4a 100%);
+  z-index: -1;
+  will-change: transform, opacity, filter;
+  opacity: 0;
+  transform: scale(1.2);
+  filter: blur(10px);
+}
+
+.hero-bg.is-ready {
+  animation:
+    heroIn 1.8s var(--ease-out) forwards,
+    heroKen 28s var(--ease-soft) 1.8s infinite alternate;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 90% 50% at 70% 12%, rgba(126, 200, 228, 0.22), transparent 55%),
+    radial-gradient(ellipse 80% 55% at 30% 100%, rgba(26, 155, 104, 0.45), transparent 62%),
+    linear-gradient(
+      180deg,
+      transparent 40%,
+      rgba(15, 90, 68, 0.35) 72%,
+      rgba(8, 55, 42, 0.7) 100%
+    ),
+    linear-gradient(90deg, rgba(8, 40, 36, 0.2), transparent 42%);
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 1.4s var(--ease-out) 0.25s;
+}
+
+.hero.is-ready::after {
+  opacity: 1;
+}
+
+.hero-inner {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: clamp(48px, 8vw, 96px) clamp(28px, 5.5vw, 96px) clamp(56px, 9vw, 100px);
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, white 82%, var(--mustard));
+  opacity: 0;
+  animation: fadeUp 1s var(--ease-out) 0.15s forwards;
+}
+
+.kicker::before {
+  content: "";
+  width: 36px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--mustard), var(--peach));
+  flex-shrink: 0;
+}
+
+.hero h1 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(2.35rem, 5.8vw, 4.25rem);
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  max-width: 16em;
+  margin: 20px 0 0;
+  text-shadow: 0 2px 28px rgba(8, 40, 36, 0.35);
+}
+
+.hero-title {
+  min-height: 2.6em;
+}
+
+.hero-title .line {
+  display: block;
+}
+
+.hero-title .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(0.4em);
+  filter: blur(3px);
+  transition:
+    opacity 0.28s var(--ease-out),
+    transform 0.28s var(--ease-out),
+    filter 0.28s var(--ease-out);
+}
+
+.hero-title .char.is-space {
+  width: 0.28em;
+  transform: none;
+  filter: none;
+}
+
+.hero-title .char.is-on {
+  opacity: 1;
+  transform: translateX(0);
+  filter: blur(0);
+}
+
+.hero-title .char.is-off {
+  opacity: 0;
+  transform: translateX(-0.15em);
+  filter: blur(2px);
+}
+
+.sapo {
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 400;
+  line-height: 1.65;
+  max-width: 38em;
+  margin-top: 24px;
+  color: color-mix(in srgb, white 92%, transparent);
+  opacity: 0;
+  animation: fadeUp 1.1s var(--ease-out) 1.4s forwards;
+}
+
+.meta {
+  font-family: var(--font-sans);
+  margin-top: 28px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: color-mix(in srgb, white 68%, transparent);
+  opacity: 0;
+  animation: fadeUp 1.1s var(--ease-out) 1.6s forwards;
+}
+
+/* Article — editorial hiện đại, tông Tây Bắc */
+.wrap {
+  width: min(920px, calc(100% - clamp(22px, 4vw, 40px) * 2));
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  padding: clamp(36px, 5vw, 56px) 0 0;
+}
+
+.lead {
+  position: relative;
+  font-family: var(--font-serif);
+  font-size: clamp(1.28rem, 2.3vw, 1.55rem);
+  font-weight: 500;
+  line-height: 1.72;
+  color: var(--ink-soft);
+  margin: 0 0 8px;
+  padding: 28px 24px 28px 28px;
+  border-left: 3px solid transparent;
+  border-image: linear-gradient(180deg, var(--terrace), var(--sky), var(--mustard)) 1;
+  background:
+    linear-gradient(120deg, color-mix(in srgb, white 72%, transparent), color-mix(in srgb, var(--mist) 35%, transparent));
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  box-shadow: 0 12px 28px -24px rgba(15, 77, 58, 0.35);
+}
+
+.lead::first-letter {
+  float: left;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 3.4em;
+  line-height: 0.82;
+  padding: 0.08em 0.12em 0 0;
+  color: var(--terrace);
+}
+
+.chapter {
+  position: relative;
+  margin-top: clamp(48px, 7vw, 80px);
+  padding: clamp(28px, 4vw, 40px) 0;
+  max-width: 100%;
+}
+
+.chapter::before {
+  content: attr(data-num);
+  position: absolute;
+  top: -0.15em;
+  right: 0;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: clamp(4.5rem, 12vw, 7.5rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: color-mix(in srgb, var(--terrace) 10%, transparent);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.chapter > * {
+  position: relative;
+  z-index: 1;
+}
+
+.chapter--mist {
+  margin-left: 0;
+  margin-right: 0;
+  padding: clamp(28px, 4vw, 40px) clamp(16px, 2.5vw, 32px);
+  background:
+    linear-gradient(135deg, rgba(232, 250, 243, 0.88), rgba(234, 246, 255, 0.72));
+  border: 1px solid color-mix(in srgb, var(--sky) 28%, transparent);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 28px -22px rgba(53, 84, 168, 0.25);
+}
+
+.chapter--warm {
+  margin-left: 0;
+  margin-right: 0;
+  padding: clamp(28px, 4vw, 40px) clamp(16px, 2.5vw, 32px);
+  background:
+    linear-gradient(160deg, rgba(255, 248, 230, 0.78), rgba(232, 250, 243, 0.58));
+  border: 1px solid color-mix(in srgb, var(--mustard) 32%, transparent);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 28px -22px rgba(180, 120, 30, 0.22);
+}
+
+.chapter p {
+  font-family: var(--font-serif);
+  font-size: clamp(1.0625rem, 1.35vw, 1.175rem);
+  line-height: 1.85;
+  color: var(--ink-soft);
+  margin: 1.25em 0;
+}
+
+.chapter strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+h2 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(1.55rem, 2.8vw, 2rem);
+  line-height: 1.32;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin: 0 0 18px;
+  max-width: 22em;
+  text-wrap: balance;
+}
+
+h2 .ch-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--terrace);
+  margin-bottom: 10px;
+}
+
+/* Reveal — nhiều kiểu khi cuộn */
+.reveal,
+.reveal-up,
+.reveal-left,
+.reveal-right,
+.reveal-zoom,
+.reveal-blur,
+.reveal-soft {
+  opacity: 0;
+  will-change: transform, opacity, filter;
+  transition:
+    opacity 0.85s var(--ease-out),
+    transform 0.85s var(--ease-out),
+    filter 0.85s var(--ease-out),
+    clip-path 0.95s var(--ease-out);
+  transition-delay: var(--d, 0ms);
+}
+
+.reveal,
+.reveal-up {
+  transform: translate3d(0, 36px, 0);
+}
+
+.reveal-left {
+  transform: translate3d(-48px, 12px, 0);
+}
+
+.reveal-right {
+  transform: translate3d(48px, 12px, 0);
+}
+
+.reveal-zoom {
+  transform: scale(0.9) translate3d(0, 18px, 0);
+  filter: blur(2px);
+}
+
+.reveal-blur {
+  transform: translate3d(0, 20px, 0);
+  filter: blur(10px);
+}
+
+.reveal-soft {
+  transform: translate3d(0, 24px, 0) scale(0.98);
+  clip-path: inset(8% 6% 8% 6% round 16px);
+}
+
+.reveal.is-in,
+.reveal-up.is-in,
+.reveal-left.is-in,
+.reveal-right.is-in,
+.reveal-zoom.is-in,
+.reveal-blur.is-in,
+.reveal-soft.is-in {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  clip-path: inset(0% 0% 0% 0% round 0);
+}
+
+.chapter.is-in .ch-label {
+  animation: labelSlide 0.7s var(--ease-out) both;
+}
+
+@keyframes labelSlide {
+  from {
+    opacity: 0;
+    letter-spacing: 0.28em;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    letter-spacing: 0.12em;
+    transform: none;
+  }
+}
+
+/* Figures */
+.figure {
+  width: 100%;
+  margin: 28px 0 8px;
+  overflow: hidden;
+  position: relative;
+  border-radius: var(--radius-md);
+  border: 1px solid color-mix(in srgb, var(--terrace) 14%, var(--line));
+  box-shadow:
+    0 14px 36px -20px rgba(15, 77, 58, 0.32),
+    0 1px 0 rgba(255, 255, 255, 0.55) inset;
+}
+
+.figure::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 38%;
+  background: linear-gradient(180deg, transparent, rgba(15, 77, 58, 0.14));
+  pointer-events: none;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  z-index: 2;
+}
+
+.figure img,
+.placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-md);
+}
+
+.figure picture {
+  display: block;
+  width: 100%;
+}
+
+.figure img {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  background:
+    linear-gradient(125deg, #bfe8d8 0%, #cfeaf8 42%, #f3dfb0 100%);
+}
+
+.figure img.is-missing {
+  display: none;
+}
+
+.placeholder {
+  aspect-ratio: 16 / 9;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background:
+    linear-gradient(125deg, #bfe8d8 0%, #cfeaf8 42%, #f3dfb0 100%);
+  display: none;
+  place-items: center;
+  color: var(--forest);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 24px;
+  border-radius: var(--radius-md);
+  line-height: 1.55;
+}
+
+.figure:has(img.is-missing) .placeholder,
+.figure:not(:has(img)) .placeholder {
+  display: grid;
+  position: relative;
+}
+
+.placeholder small {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--muted);
+  opacity: 0.9;
+}
+
+.placeholder::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.35) 48%, transparent 62%);
+  transform: translateX(-120%);
+  animation: shimmer 4.5s var(--ease-soft) infinite;
+}
+
+/* Quotes — giọng kể chân thành */
+.quote {
+  position: relative;
+  margin: 36px 0;
+  padding: 24px 24px 24px 28px;
+  text-align: left;
+  border-left: 3px solid transparent;
+  border-image: linear-gradient(180deg, var(--indigo), var(--terrace)) 1;
+  background:
+    linear-gradient(105deg, rgba(53, 84, 168, 0.09), rgba(26, 155, 104, 0.06) 70%, transparent);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.quote::before { display: none; }
+
+.quote q {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  line-height: 1.5;
+  color: var(--forest);
+  quotes: none;
+  display: block;
+  text-wrap: balance;
+}
+
+.quote cite {
+  display: block;
+  margin-top: 14px;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-style: normal;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.quote.is-in q {
+  animation: fadeUp 0.85s var(--ease-out) both;
+}
+
+.quote.is-in cite {
+  animation: fadeUp 0.85s var(--ease-out) 0.12s both;
+}
+
+/* Pull — dải sương núi / niềm tin */
+.pull {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: clamp(1.15rem, 2.1vw, 1.4rem);
+  line-height: 1.5;
+  text-align: left;
+  margin: 40px 0;
+  max-width: 100%;
+  color: var(--terrace-deep);
+  text-wrap: balance;
+  position: relative;
+  padding: 28px clamp(20px, 3vw, 36px) 28px clamp(24px, 3.5vw, 40px);
+  background:
+    linear-gradient(105deg, rgba(26, 155, 104, 0.12), rgba(126, 200, 228, 0.14) 55%, rgba(232, 182, 58, 0.12));
+  border-radius: var(--radius-md);
+  box-sizing: border-box;
+  border: 1px solid color-mix(in srgb, var(--terrace) 18%, transparent);
+}
+
+.pull::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  bottom: 14px;
+  width: 3px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--terrace), var(--mustard));
+}
+
+.pull::after { display: none; }
+
+/* Timeline — hành trình lên bản */
+.timeline {
+  width: 100%;
+  margin: 44px 0 12px;
+  padding: clamp(28px, 4vw, 36px) clamp(20px, 3vw, 28px);
+  background:
+    linear-gradient(155deg, rgba(255,255,255,0.72), rgba(232,250,243,0.9) 45%, rgba(234,246,255,0.85));
+  border: 1px solid color-mix(in srgb, var(--terrace) 16%, var(--line));
+  border-radius: var(--radius-lg);
+  box-shadow: 0 18px 40px -28px rgba(15, 77, 58, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(126, 200, 228, 0.28), transparent 68%);
+  pointer-events: none;
+}
+
+.timeline-head {
+  position: relative;
+  margin: 0 0 28px;
+}
+
+.timeline-head .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--terrace);
+  margin: 0 0 10px;
+}
+
+.timeline-head .eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--terrace), var(--mustard));
+}
+
+.timeline-head h3 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(1.35rem, 2.4vw, 1.65rem);
+  line-height: 1.3;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+
+.timeline-head p {
+  font-family: var(--font-serif);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--muted);
+  margin: 0;
+  max-width: 34em;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  bottom: 28px;
+  left: 27px;
+  width: 3px;
+  border-radius: 99px;
+  background: linear-gradient(180deg, var(--terrace), var(--sky), var(--mustard));
+  opacity: 0.55;
+  z-index: 0;
+}
+
+.step {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+  padding: 0;
+  opacity: 0;
+  transform: translateY(18px) translateX(-8px);
+}
+
+.timeline.is-in .step {
+  animation: stepIn 0.65s var(--ease-out) both;
+}
+
+.timeline.is-in .step:nth-child(1) { animation-delay: 0.05s; }
+.timeline.is-in .step:nth-child(2) { animation-delay: 0.12s; }
+.timeline.is-in .step:nth-child(3) { animation-delay: 0.19s; }
+.timeline.is-in .step:nth-child(4) { animation-delay: 0.26s; }
+.timeline.is-in .step:nth-child(5) { animation-delay: 0.33s; }
+.timeline.is-in .step:nth-child(6) { animation-delay: 0.4s; }
+
+@keyframes stepIn {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.step .dot {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+}
+
+.step .dot span {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #fff, #f3fbf8);
+  border: 2px solid color-mix(in srgb, var(--terrace) 55%, white);
+  color: var(--terrace-deep);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  box-shadow:
+    0 0 0 6px color-mix(in srgb, var(--mist) 70%, transparent),
+    0 10px 18px -12px rgba(15, 77, 58, 0.45);
+  transition:
+    transform 0.35s var(--ease-out),
+    background 0.35s,
+    color 0.35s,
+    border-color 0.35s;
+}
+
+.step-body {
+  background: color-mix(in srgb, white 78%, transparent);
+  border: 1px solid color-mix(in srgb, var(--terrace) 12%, var(--line));
+  border-radius: var(--radius-md);
+  padding: 14px 18px 15px;
+  transition:
+    transform 0.35s var(--ease-out),
+    border-color 0.35s,
+    box-shadow 0.35s;
+}
+
+.step-body strong {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+
+.step-body em {
+  display: block;
+  font-family: var(--font-serif);
+  font-style: normal;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.step:hover .dot span {
+  transform: scale(1.06);
+  background: linear-gradient(145deg, var(--terrace), #2bb57a);
+  border-color: transparent;
+  color: #fff;
+}
+
+.step:hover .step-body {
+  transform: translateX(4px);
+  border-color: color-mix(in srgb, var(--terrace) 28%, var(--line));
+  box-shadow: 0 12px 24px -18px rgba(15, 77, 58, 0.4);
+}
+
+/* Principles */
+.principles {
+  margin: 36px 0;
+  display: grid;
+  gap: 10px;
+}
+
+.principle {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: start;
+  padding: 16px 18px;
+  border: 1px solid color-mix(in srgb, var(--terrace) 16%, var(--line));
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, white 70%, transparent);
+  transition: border-color 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+}
+
+.principle:first-child {
+  border-top: 1px solid color-mix(in srgb, var(--terrace) 16%, var(--line));
+}
+
+.principle:hover {
+  border-color: color-mix(in srgb, var(--terrace) 36%, var(--line));
+  transform: translateX(3px);
+}
+
+.principle .idx {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 1.55rem;
+  line-height: 1;
+  color: var(--terrace);
+  letter-spacing: -0.03em;
+  min-width: 1.6em;
+}
+
+.principle .title {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+
+.principle .desc {
+  font-family: var(--font-serif);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--terrace);
+  margin: 0 0 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-label::before {
+  content: "";
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--terrace), var(--mustard));
+}
+
+/* Footer */
+.end {
+  background:
+    linear-gradient(160deg, #0c3a32 0%, #134d5c 48%, #16324a 100%);
+  color: #e4f5ef;
+  width: 100%;
+  max-width: 100%;
+  margin: 72px 0 0;
+  padding: clamp(40px, 6vw, 56px) clamp(22px, 4vw, 40px);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.end::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--terrace), var(--sky), var(--mustard), transparent);
+}
+
+.end h3 {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 20px;
+  line-height: 1.35;
+  color: #fff;
+}
+
+.end p {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: color-mix(in srgb, white 72%, transparent);
+  margin: 9px 0;
+  line-height: 1.7;
+}
+
+.end strong {
+  color: color-mix(in srgb, white 88%, var(--mustard));
+  font-weight: 600;
+}
+
+/* Keyframes */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes heroIn {
+  from {
+    opacity: 0;
+    transform: scale(1.2);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.08);
+    filter: blur(0);
+  }
+}
+
+@keyframes heroKen {
+  from { transform: scale(1.08) translate3d(0, 0, 0); }
+  to { transform: scale(1.14) translate3d(-1.2%, -0.8%, 0); }
+}
+
+@keyframes shimmer {
+  0%, 40% { transform: translateX(-120%); }
+  70%, 100% { transform: translateX(120%); }
+}
+
+/* Responsive */
+@media (max-width: 760px) {
+  body { font-size: 1.05rem; }
+
+  .hero {
+    min-height: 100svh;
+    min-height: 100dvh;
+  }
+
+  .hero-inner {
+    width: 100%;
+    max-width: 100%;
+    padding: 48px 20px 72px;
+  }
+
+  .hero h1,
+  .hero-title {
+    font-size: clamp(1.85rem, 8.2vw, 2.45rem);
+    line-height: 1.28;
+    max-width: 100%;
+    letter-spacing: -0.005em;
+  }
+
+  .hero-title { min-height: 2.8em; }
+
+  .sapo {
+    font-size: 1.02rem;
+    max-width: 100%;
+    line-height: 1.6;
+  }
+
+  .meta {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    max-width: 100%;
+    word-break: break-word;
+  }
+
+  .wrap {
+    width: calc(100% - 32px);
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 28px 0 0;
+  }
+
+  .lead {
+    padding: 20px 16px 20px 18px;
+    font-size: 1.12rem;
+    line-height: 1.65;
+  }
+
+  .lead::first-letter { font-size: 2.5em; }
+
+  .chapter {
+    margin-top: 40px;
+    padding: 24px 0;
+  }
+
+  .chapter::before {
+    font-size: 3.2rem;
+    top: 0;
+    right: 4px;
+    opacity: 0.55;
+  }
+
+  .chapter--mist,
+  .chapter--warm {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 22px 16px;
+    border-radius: var(--radius-md);
+  }
+
+  .chapter p {
+    font-size: 1.02rem;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  h2 {
+    font-size: clamp(1.4rem, 6.5vw, 1.75rem);
+    max-width: 100%;
+    padding-right: 0;
+  }
+
+  .figure {
+    margin: 22px 0 8px;
+    max-width: 100%;
+  }
+
+  .figure img,
+  .placeholder {
+    border-radius: var(--radius-sm);
+  }
+
+  .quote {
+    margin: 28px 0;
+    padding: 18px 16px 18px 18px;
+  }
+
+  .quote q {
+    font-size: 1.15rem;
+    line-height: 1.5;
+  }
+
+  .pull {
+    margin: 28px 0;
+    padding: 20px 16px;
+    font-size: 1.08rem;
+  }
+
+  .timeline {
+    margin: 28px 0 8px;
+    padding: 22px 14px;
+    border-radius: var(--radius-md);
+  }
+
+  .timeline::before {
+    width: 140px;
+    height: 140px;
+    top: -30%;
+    right: -25%;
+  }
+
+  .steps::before { left: 22px; }
+
+  .step {
+    grid-template-columns: 46px 1fr;
+    gap: 10px;
+  }
+
+  .step .dot {
+    width: 46px;
+    height: 46px;
+  }
+
+  .step .dot span {
+    width: 38px;
+    height: 38px;
+    font-size: 0.72rem;
+    box-shadow:
+      0 0 0 4px color-mix(in srgb, var(--mist) 70%, transparent),
+      0 8px 14px -10px rgba(15, 77, 58, 0.4);
+  }
+
+  .step-body {
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+  }
+
+  .step-body strong { font-size: 0.95rem; }
+  .step-body em { font-size: 0.86rem; }
+
+  .principle {
+    gap: 12px;
+    padding: 16px 0;
+  }
+
+  .principle .idx { font-size: 1.4rem; }
+
+  .end {
+    width: 100%;
+    margin: 48px 0 0;
+    padding: 32px 18px 40px;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+  }
+
+  .end p {
+    font-size: 0.88rem;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .reveal-left,
+  .reveal-right,
+  .reveal-soft {
+    transform: translate3d(0, 28px, 0);
+    clip-path: none;
+  }
+
+  .reveal-zoom {
+    transform: scale(0.96) translate3d(0, 16px, 0);
+  }
+}
+
+@media (max-width: 400px) {
+  .wrap { width: calc(100% - 24px); }
+  .hero-inner { padding: 40px 16px 68px; }
+  .timeline { padding: 18px 12px; }
+  .step { grid-template-columns: 40px 1fr; }
+  .steps::before { left: 19px; }
+  .step .dot { width: 40px; height: 40px; }
+  .step .dot span { width: 34px; height: 34px; font-size: 0.68rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-bg {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: scale(1.08) !important;
+    filter: none !important;
+  }
+  .hero::after { opacity: 1 !important; transition: none !important; }
+  .placeholder::before,
+  .hero-title .char {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  .kicker, .sapo, .meta { opacity: 1; }
+  .reveal, .reveal-up, .reveal-left, .reveal-right,
+  .reveal-zoom, .reveal-blur, .reveal-soft, .step {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    clip-path: none;
+    transition: none;
+  }
+  .timeline.is-in .step,
+  .quote.is-in q,
+  .quote.is-in cite,
+  .chapter.is-in .ch-label {
+    animation: none !important;
+  }
+  .step { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Tiến độ đọc"></div>
+
+<header class="hero">
+  <div class="hero-bg" id="heroBg" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="kicker">Dân vận khéo</div>
+    <h1 class="hero-title" id="heroTitle" aria-label="Một lần đến nhà, một lần gieo thêm niềm tin"></h1>
+    <p class="sapo">Chỗ ngồi của Lan trong lớp 5A2 – nơi bắt đầu một câu chuyện về sự kiên trì của người giáo viên.</p>
+    <div class="meta">Tác giả Nguyễn Thị Quyên · Trường PTDTBT Tiểu học Trung Chải · 12/9/2026</div>
+  </div>
+</header>
+
+<article class="wrap" id="article">
+<p class="lead">Ở vùng cao, vận động một học sinh đến lớp đôi khi không chỉ là một lời nhắc. Đó có thể là một cuộc đi đến tận nhà, một buổi ngồi bên gia đình, một câu chuyện được lắng nghe và sự kiên trì để cùng tìm ra cách tháo gỡ.</p>
+
+<div class="figure">
+  <picture>
+    <source srcset="images/anh_1.webp" type="image/webp">
+    <img src="images/anh_1.jpg" alt="Chỗ ngồi của Lan trong lớp 5A2" width="1400" height="1050" loading="eager" fetchpriority="high" decoding="async">
+  </picture>
+  <div class="placeholder">01 — Chỗ ngồi của Lan trong lớp 5A2<small>images/anh_1.webp</small></div>
+</div>
+
+<section class="chapter" data-num="01">
+  <h2><span class="ch-label">01</span>Khi một chỗ ngồi trong lớp bất ngờ bỏ trống</h2>
+  <p>Buổi sáng ở Trường PTDTBT Tiểu học Trung Chải bắt đầu như thường lệ. Nhưng với giáo viên chủ nhiệm, đôi khi điều khiến người ta chú ý nhất lại là một chỗ ngồi còn trống.</p>
+  <p>Sáng hôm ấy, trong lớp 5A2, chỗ ngồi của <strong>Má Thị Lan</strong> lại bỏ trống.</p>
+  <p>Lan là một học sinh không phải lúc nào cũng học tập thuận lợi. Gia đình còn nhiều khó khăn, việc học của em đôi khi phải nhường chỗ cho những công việc của gia đình. Những ngày đầu, em nghỉ một vài buổi. Rồi số buổi nghỉ nhiều hơn.</p>
+  <p>Cô giáo <strong>Trần Thị Tuyết</strong> bắt đầu để ý.</p>
+  <p>Cô không muốn nhìn sự việc đơn giản là “một học sinh nghỉ học”. Cô nghĩ phía sau một chỗ ngồi bỏ trống chắc chắn phải có một câu chuyện.</p>
+  <p>Và cô quyết định tìm hiểu.</p>
+</section>
+
+<section class="chapter chapter--mist" data-num="02">
+  <h2><span class="ch-label">02</span>Từ cổng trường đến căn nhà của học sinh</h2>
+  <div class="figure">
+    <picture>
+      <source srcset="images/anh_2.webp" type="image/webp">
+      <img src="images/anh_2.jpg" alt="Từ cổng trường đến căn nhà của học sinh" width="964" height="1280" loading="lazy" decoding="async">
+    </picture>
+    <div class="placeholder">02 — Từ cổng trường đến căn nhà của học sinh<small>images/anh_2.webp</small></div>
+  </div>
+  <p>Qua trao đổi với bạn bè và tìm hiểu thêm tình hình của học sinh, cô Tuyết biết Lan nghỉ học không phải vì em không muốn học. Gia đình còn khó khăn, em có lúc phải phụ giúp việc nhà, trong khi việc học chưa thực sự được gia đình đặt lên vị trí ưu tiên. Nếu chỉ nhắc nhở Lan: “Em phải đi học đầy đủ”, có lẽ chưa giải quyết được vấn đề.</p>
+  <p>Cô Tuyết hiểu rằng muốn Lan trở lại lớp và duy trì việc học, trước hết phải nói chuyện với gia đình.</p>
+  <p>Cô quyết định đến tận nhà.</p>
+</section>
+
+<section class="chapter" data-num="03">
+  <h2><span class="ch-label">03</span>“Dân vận” bắt đầu từ sự chân thành</h2>
+  <div class="figure">
+    <picture>
+      <source srcset="images/anh_3.webp" type="image/webp">
+      <img src="images/anh_3.jpg" alt="“Dân vận” bắt đầu từ sự chân thành" width="1280" height="964" loading="lazy" decoding="async">
+    </picture>
+    <div class="placeholder">03 — “Dân vận” bắt đầu từ sự chân thành<small>images/anh_3.webp</small></div>
+  </div>
+  <p>Lần đầu đến nhà, cô Tuyết không bắt đầu câu chuyện bằng việc hỏi vì sao Lan nghỉ học.</p>
+  <p>Cô hỏi thăm cuộc sống của gia đình, công việc của bố mẹ, việc sinh hoạt của các con rồi mới nhẹ nhàng nói về chuyện học của Lan.</p>
+  <p>Anh <strong>Má A Chờ</strong> ban đầu cũng có những điều khó nói. Gia đình còn nhiều việc phải lo, trong suy nghĩ của người lớn, một đứa trẻ ở nhà phụ giúp gia đình đôi khi cũng là một việc cần thiết.</p>
+  <p>Cô Tuyết không phản bác ngay.</p>
+  <p>Cô ngồi lại, lắng nghe.</p>
+  <p>Rồi cô phân tích cho gia đình thấy rằng nếu Lan nghỉ học thường xuyên, kiến thức bị hổng, em sẽ ngày càng khó theo kịp các bạn. Quan trọng hơn, khi đã quen với việc nghỉ học, việc đưa em trở lại trường sẽ càng khó khăn.</p>
+  <p>Cuộc trò chuyện hôm ấy không làm mọi chuyện thay đổi ngay.</p>
+  <p>Nhưng ít nhất, gia đình đã bắt đầu lắng nghe nhà trường.</p>
+</section>
+
+<section class="chapter chapter--warm" data-num="04">
+  <h2><span class="ch-label">04</span>Má Thị Lan trở lại trường</h2>
+  <div class="figure">
+    <picture>
+      <source srcset="images/anh_4.webp" type="image/webp">
+      <img src="images/anh_4.jpg" alt="Má Thị Lan trở lại trường" width="1280" height="960" loading="lazy" decoding="async">
+    </picture>
+    <div class="placeholder">04 — Má Thị Lan trở lại trường<small>images/anh_4.webp</small></div>
+  </div>
+  <p>Sau lần gặp đầu tiên, Má Thị Lan trở lại trường.</p>
+  <p>Nhưng cô Tuyết không nghĩ rằng như vậy là đã xong.</p>
+  <p>Cô tiếp tục theo dõi việc học và sự chuyên cần của em. Một thời gian sau, cô lại đến gia đình để trao đổi.</p>
+  <p>Lần này, câu chuyện đã khác.</p>
+  <p>Không còn khoảng cách giữa “nhà trường” và “gia đình”. Anh Má A Chờ đã chủ động trao đổi về việc học của con, hỏi thêm giáo viên xem Lan học tập thế nào, còn yếu môn gì và gia đình có thể hỗ trợ con ra sao.</p>
+  <p class="pull">Hai lần đến nhà, nhưng điều cô Tuyết muốn tạo ra không phải là hai lần vận động. Đó là một mối quan hệ đồng hành lâu dài giữa gia đình và nhà trường.</p>
+</section>
+
+<section class="chapter" data-num="05">
+  <h2><span class="ch-label">05</span>Một người cha và sự thay đổi trong suy nghĩ</h2>
+  <div class="figure">
+    <picture>
+      <source srcset="images/anh_5.webp" type="image/webp">
+      <img src="images/anh_5.jpg" alt="Một người cha và sự thay đổi trong suy nghĩ" width="963" height="1280" loading="lazy" decoding="async">
+    </picture>
+    <div class="placeholder">05 — Một người cha và sự thay đổi trong suy nghĩ<small>images/anh_5.webp</small></div>
+  </div>
+  <blockquote class="quote">
+    <q>Trước đây gia đình còn nghĩ con nghỉ vài buổi cũng không sao, nhưng cô giáo đến tận nhà nói chuyện, tôi mới thấy nếu để con nghỉ nhiều thì sau này con sẽ khó theo kịp các bạn.</q>
+  </blockquote>
+  <p>Trong cuộc trò chuyện, cô Tuyết nhắc anh Chờ rằng Lan đã học đến lớp 5. Đây là giai đoạn quan trọng để em chuẩn bị chuyển cấp.</p>
+  <p>Cô nói với anh rằng nhà trường có thể hỗ trợ em trong học tập, giáo viên có thể quan tâm thêm khi em gặp khó khăn, nhưng điều quan trọng nhất vẫn là gia đình tạo điều kiện để em có thời gian đến lớp đều đặn.</p>
+  <p>Anh Chờ dần hiểu rằng việc cho con đi học không phải chỉ là đáp ứng yêu cầu của nhà trường.</p>
+  <p>Đó là trao cho con một cơ hội.</p>
+  <p>Một cơ hội để sau này con có thể tự lựa chọn con đường của mình.</p>
+</section>
+
+<section class="chapter chapter--mist" data-num="06">
+  <h2><span class="ch-label">06</span>Lan trở lại học, từ một học sinh có nguy cơ nghỉ học trở thành một học sinh tiếp tục được đồng hành trên con đường đến trường</h2>
+  <div class="figure">
+    <picture>
+      <source srcset="images/anh_6.webp" type="image/webp">
+      <img src="images/anh_6.jpg" alt="Lan trở lại học" width="1276" height="956" loading="lazy" decoding="async">
+    </picture>
+    <div class="placeholder">06 — Lan trở lại học<small>images/anh_6.webp</small></div>
+  </div>
+  <p>Sau những lần gặp gỡ, Lan trở lại lớp đều đặn hơn.</p>
+  <p>Nhưng điều cô Tuyết quan tâm không chỉ là việc em có mặt.</p>
+  <p>Cô bắt đầu chú ý đến những thay đổi nhỏ của Lan: em có chủ động tham gia các hoạt động trên lớp không, có mạnh dạn hỏi khi chưa hiểu bài không, có hoàn thành nhiệm vụ học tập không.</p>
+  <p>Khi em gặp khó khăn, cô động viên và hỗ trợ thêm.</p>
+  <p>Những thay đổi ấy không diễn ra trong một ngày.</p>
+  <p>Nhưng từng ngày, Lan dần lấy lại nhịp học tập.</p>
+</section>
+
+<section class="chapter" data-num="07">
+  <h2><span class="ch-label">07</span>Lan chia sẻ: “Em thích đi học vì ở trường có cô giáo và các bạn. Cô Tuyết thường hỏi em có khó khăn gì thì nói với cô.”</h2>
+  <div class="figure">
+    <picture>
+      <source srcset="images/anh_7.webp" type="image/webp">
+      <img src="images/anh_7.jpg" alt="Lan chia sẻ về việc đi học" width="1349" height="1012" loading="lazy" decoding="async">
+    </picture>
+    <div class="placeholder">07 — Lan chia sẻ về việc đi học<small>images/anh_7.webp</small></div>
+  </div>
+  <p>Có lẽ với Lan, điều quan trọng nhất không phải là cô giáo đã đến nhà em bao nhiêu lần.</p>
+  <p>Điều em cảm nhận được là cô giáo không bỏ cuộc khi em gặp khó khăn.</p>
+  <p>Mỗi lần em nghỉ học, cô tìm hiểu. Khi gia đình có khó khăn, cô tìm cách chia sẻ. Khi em trở lại lớp, cô tiếp tục quan tâm.</p>
+  <p>Từ đó, Lan hiểu rằng việc học của mình được thầy cô và gia đình quan tâm thực sự.</p>
+  <p>Và khi một đứa trẻ cảm thấy mình được quan tâm, em sẽ có thêm động lực để cố gắng.</p>
+</section>
+
+<section class="chapter chapter--warm" data-num="08">
+  <h2><span class="ch-label">08</span>Từ một chỗ ngồi bỏ trống đến một cách làm</h2>
+  <div class="figure">
+    <picture>
+      <source srcset="images/anh_8.webp" type="image/webp">
+      <img src="images/anh_8.jpg" alt="Từ một chỗ ngồi bỏ trống đến một cách làm" width="1400" height="1050" loading="lazy" decoding="async">
+    </picture>
+    <div class="placeholder">08 — Từ một chỗ ngồi bỏ trống đến một cách làm<small>images/anh_8.webp</small></div>
+  </div>
+  <p>Câu chuyện của Lan khiến cô Tuyết nhận ra một điều rất giản dị: Với học sinh vùng cao, muốn duy trì việc học cho các em, người giáo viên đôi khi phải đi xa hơn công việc trên bục giảng.</p>
+
+  <p class="section-label">Cách làm được rút ra</p>
+  <div class="principles">
+    <div class="principle">
+      <div class="idx">01</div>
+      <div>
+        <p class="title">Một lần học sinh nghỉ học</p>
+        <p class="desc">Tìm hiểu nguyên nhân.</p>
+      </div>
+    </div>
+    <div class="principle">
+      <div class="idx">02</div>
+      <div>
+        <p class="title">Biết nguyên nhân</p>
+        <p class="desc">Không vội trách móc.</p>
+      </div>
+    </div>
+    <div class="principle">
+      <div class="idx">03</div>
+      <div>
+        <p class="title">Gặp khó khăn</p>
+        <p class="desc">Tìm đến gia đình.</p>
+      </div>
+    </div>
+    <div class="principle">
+      <div class="idx">04</div>
+      <div>
+        <p class="title">Gặp phụ huynh</p>
+        <p class="desc">Trước hết phải lắng nghe.</p>
+      </div>
+    </div>
+    <div class="principle">
+      <div class="idx">05</div>
+      <div>
+        <p class="title">Sau khi học sinh trở lại trường</p>
+        <p class="desc">Tiếp tục đồng hành.</p>
+      </div>
+    </div>
+  </div>
+
+  <p>Từ một trường hợp cụ thể, cách làm ấy có thể trở thành kinh nghiệm để giáo viên trong trường cùng áp dụng đối với những học sinh có nguy cơ bỏ học, học sinh có hoàn cảnh khó khăn hoặc chưa nhận được sự đồng hành đầy đủ từ gia đình.</p>
+
+  <section class="timeline">
+    <div class="timeline-head">
+      <p class="eyebrow">Hành trình</p>
+      <h3>Từ một chỗ ngồi bỏ trống đến một cách làm</h3>
+    </div>
+    <ol class="steps">
+      <li class="step">
+        <div class="dot"><span>01</span></div>
+        <div class="step-body">
+          <strong>Phát hiện</strong>
+          <em>Học sinh nghỉ học, giáo viên chủ động tìm hiểu.</em>
+        </div>
+      </li>
+      <li class="step">
+        <div class="dot"><span>02</span></div>
+        <div class="step-body">
+          <strong>Tìm hiểu</strong>
+          <em>Không chỉ nhìn vào biểu hiện mà tìm nguyên nhân phía sau.</em>
+        </div>
+      </li>
+      <li class="step">
+        <div class="dot"><span>03</span></div>
+        <div class="step-body">
+          <strong>Đến với gia đình</strong>
+          <em>Trực tiếp gặp phụ huynh, chia sẻ và lắng nghe.</em>
+        </div>
+      </li>
+      <li class="step">
+        <div class="dot"><span>04</span></div>
+        <div class="step-body">
+          <strong>Cùng tìm giải pháp</strong>
+          <em>Nhà trường và gia đình thống nhất cách hỗ trợ học sinh.</em>
+        </div>
+      </li>
+      <li class="step">
+        <div class="dot"><span>05</span></div>
+        <div class="step-body">
+          <strong>Đồng hành</strong>
+          <em>Tiếp tục quan tâm sau khi học sinh trở lại lớp.</em>
+        </div>
+      </li>
+      <li class="step">
+        <div class="dot"><span>06</span></div>
+        <div class="step-body">
+          <strong>Thay đổi</strong>
+          <em>Học sinh duy trì việc học; phụ huynh nâng cao trách nhiệm đồng hành cùng con.</em>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <p>Ở xã Tả Phìn, tỉnh Lào Cai, những con đường đến trường có thể còn xa, cuộc sống của nhiều gia đình còn không ít khó khăn. Nhưng khoảng cách lớn nhất đôi khi không nằm ở những con đường, mà nằm ở việc người lớn có thực sự hiểu nhau hay không?</p>
+  <p>Cô giáo Trần Thị Tuyết đã chọn cách bước qua khoảng cách ấy bằng một việc rất giản dị “đến với gia đình học sinh”.</p>
+  <p>Hai lần đến nhà, một học sinh trở lại lớp, một người cha thay đổi cách nhìn về việc học của con. Nhưng giá trị lớn hơn của câu chuyện nằm ở chỗ: từ một trường hợp cụ thể, nhà trường có thêm một cách làm để chăm lo, vận động và đồng hành với học sinh.</p>
+  <p class="pull">“Dân vận khéo” không phải là những lời nói thật hay. Đó là khi người giáo viên biết đi đến nơi học sinh đang cần mình, biết lắng nghe trước khi vận động và kiên trì đồng hành sau khi vận động.</p>
+  <p>Một chỗ ngồi được giữ lại trong lớp học.</p>
+  <p>Một cánh cửa gia đình được mở ra.</p>
+  <p>Và phía sau đó là một niềm tin được gieo lại – niềm tin rằng mỗi đứa trẻ đều xứng đáng có cơ hội tiếp tục đến trường.</p>
+</section>
+
+<footer class="end">
+  <h3>Thông tin tác phẩm</h3>
+  <p><strong>Tên tác phẩm:</strong> Một lần đến nhà, một lần gieo thêm niềm tin</p>
+  <p><strong>Thể loại:</strong> Bài viết</p>
+  <p><strong>Hình thức:</strong> Báo điện tử</p>
+  <p><strong>Nhân vật:</strong> Trần Thị Tuyết; Má Thị Lan – lớp 5A2; Má A Chờ - thôn Móng Sến</p>
+  <p><strong>Đơn vị:</strong> Trường PTDTBT Tiểu học Trung Chải, Xã Tả Phìn, tỉnh Lào Cai</p>
+  <p><strong>Nơi đăng:</strong> Facebook. Trường Phổ thông Dân tộc Bán trú Tiểu học và THCS Trung Chải</p>
+  <p><strong>Ngày đăng:</strong> 12/9/2026</p>
+</footer>
+</article>
+
+<script>
+(() => {
+  const progress = document.getElementById('progress');
+  const heroBg = document.getElementById('heroBg');
+  const hero = document.querySelector('.hero');
+  const heroTitle = document.getElementById('heroTitle');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Banner load effect
+  let bannerParallax = false;
+  const revealBanner = () => {
+    if (!heroBg || heroBg.classList.contains('is-ready')) return;
+    heroBg.classList.add('is-ready');
+    if (hero) hero.classList.add('is-ready');
+    setTimeout(() => { bannerParallax = true; }, reduceMotion ? 0 : 1900);
+  };
+
+  if (heroBg) {
+    if (reduceMotion) {
+      revealBanner();
+    } else {
+      const banner = new Image();
+      banner.onload = revealBanner;
+      banner.onerror = () => {
+        banner.onerror = revealBanner;
+        banner.src = 'images/banner.jpg';
+      };
+      banner.src = 'images/banner.webp';
+      setTimeout(revealBanner, 2500);
+    }
+  }
+
+  const titleLines = [
+    'Một lần đến nhà,',
+    'một lần gieo thêm niềm tin'
+  ];
+
+  if (heroTitle) {
+    let i = 0;
+    heroTitle.replaceChildren();
+    titleLines.forEach((line) => {
+      const lineEl = document.createElement('span');
+      lineEl.className = 'line';
+      [...line].forEach((ch) => {
+        const span = document.createElement('span');
+        span.className = ch === ' ' ? 'char is-space' : 'char';
+        span.style.setProperty('--i', String(i++));
+        span.textContent = ch === ' ' ? '\u00A0' : ch;
+        lineEl.appendChild(span);
+      });
+      heroTitle.appendChild(lineEl);
+    });
+
+    const chars = [...heroTitle.querySelectorAll('.char')];
+    const stepMs = 38;
+    const holdMs = 3200;
+    const outStepMs = 18;
+    const gapMs = 350;
+    let timers = [];
+
+    const clearTimers = () => {
+      timers.forEach(clearTimeout);
+      timers = [];
+    };
+
+    const wait = (ms) =>
+      new Promise((resolve) => {
+        timers.push(setTimeout(resolve, ms));
+      });
+
+    const playTitleLoop = async () => {
+      clearTimers();
+      chars.forEach((el) => el.classList.remove('is-on', 'is-off'));
+
+      for (let i = 0; i < chars.length; i++) {
+        chars[i].classList.remove('is-off');
+        chars[i].classList.add('is-on');
+        await wait(stepMs);
+      }
+
+      await wait(holdMs);
+
+      for (let i = 0; i < chars.length; i++) {
+        chars[i].classList.remove('is-on');
+        chars[i].classList.add('is-off');
+        await wait(outStepMs);
+      }
+
+      await wait(gapMs);
+      playTitleLoop();
+    };
+
+    if (reduceMotion) {
+      chars.forEach((el) => el.classList.add('is-on'));
+    } else {
+      playTitleLoop();
+    }
+  }
+
+  let ticking = false;
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - doc.clientHeight;
+      const pct = max > 0 ? (doc.scrollTop / max) * 100 : 0;
+      progress.style.width = pct + '%';
+      progress.setAttribute('aria-valuenow', Math.round(pct));
+
+      if (!reduceMotion && heroBg && bannerParallax) {
+        const y = Math.min(doc.scrollTop, window.innerHeight) * 0.28;
+        heroBg.style.transform = `scale(1.08) translate3d(0, ${y}px, 0)`;
+      }
+      ticking = false;
+    });
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const article = document.getElementById('article');
+
+  // Ảnh thiếu file → hiện placeholder có số thứ tự + tên file
+  document.querySelectorAll('.figure img').forEach((img) => {
+    const markMissing = () => img.classList.add('is-missing');
+    if (img.complete && img.naturalWidth === 0) markMissing();
+    img.addEventListener('error', markMissing);
+  });
+
+  const fxMap = [
+    ['h2', 'reveal-left'],
+    ['.lead', 'reveal-blur'],
+    ['.figure', 'reveal-zoom'],
+    ['.quote', 'reveal-left'],
+    ['.pull', 'reveal-soft'],
+    ['.timeline', 'reveal-up'],
+    ['.principle', 'reveal-right'],
+    ['.section-label', 'reveal-up'],
+    ['.end', 'reveal-up'],
+    ['.chapter > p:not(.pull):not(.section-label)', 'reveal-up']
+  ];
+
+  const markReveal = (el, cls, delayMs) => {
+    el.classList.add(cls);
+    el.style.setProperty('--d', `${delayMs}ms`);
+  };
+
+  if (article) {
+    let paraToggle = 0;
+    fxMap.forEach(([sel, cls]) => {
+      article.querySelectorAll(sel).forEach((el, idx) => {
+        if (el.dataset.fx) return;
+        let effect = cls;
+        if (sel.includes('chapter > p')) {
+          effect = paraToggle++ % 2 === 0 ? 'reveal-up' : 'reveal-right';
+        }
+        if (sel === '.figure') {
+          effect = idx % 2 === 0 ? 'reveal-zoom' : 'reveal-soft';
+        }
+        if (sel === '.quote') {
+          effect = idx % 2 === 0 ? 'reveal-left' : 'reveal-blur';
+        }
+        el.dataset.fx = effect;
+        markReveal(el, effect, Math.min(idx % 5, 4) * 70);
+      });
+    });
+
+    article.querySelectorAll('.chapter').forEach((ch) => {
+      // chỉ dùng để kích hoạt label, không ẩn cả khối
+      ch.dataset.fx = 'chapter';
+    });
+  }
+
+  const revealEls = document.querySelectorAll(
+    '.reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-zoom, .reveal-blur, .reveal-soft'
+  );
+
+  if (reduceMotion) {
+    revealEls.forEach((el) => el.classList.add('is-in'));
+    document.querySelectorAll('.chapter, .timeline').forEach((el) => el.classList.add('is-in'));
+    return;
+  }
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-in');
+        io.unobserve(entry.target);
+      });
+    },
+    { rootMargin: '0px 0px -10% 0px', threshold: 0.12 }
+  );
+
+  revealEls.forEach((el) => io.observe(el));
+
+  // chapter / timeline: gắn is-in để chạy label + steps
+  document.querySelectorAll('.chapter, .timeline').forEach((el) => io.observe(el));
+})();
+</script>
+</body>
+</html>
